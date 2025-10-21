@@ -5,9 +5,56 @@
 }
 
 .top {
+  position: relative;
   width: 1440px;
   height: 800px;
   background: rgb(225, 255, 143);
+  overflow: hidden;
+}
+
+.star3 {
+  position: absolute;
+  top: 69px;
+  left: 156px;
+  z-index: 100;
+  width: 35px;
+  height: 35px;
+}
+
+.star2 {
+  position: absolute;
+  top: 94px;
+  left: 63px;
+  z-index: 100;
+  width: 57px;
+  height: 57px;
+}
+
+.star4 {
+  position: absolute;
+  bottom: 149px;
+  right: 364px;
+  z-index: 100;
+  width: 83px;
+  height: 83px;
+}
+
+.star5 {
+  position: absolute;
+  bottom: 225px;
+  right: 455px;
+  z-index: 100;
+  width: 37px;
+  height: 37px;
+}
+
+.group-star {
+  position: absolute;
+  top: -333.46px;
+  left: 854px;
+  z-index: 100;
+  width: 1074px;
+  height: 1130.46px;
 }
 
 .title {
