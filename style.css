@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -102,8 +103,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10;
-  padding: 16px 28px 16px 28px;
+  gap: 10px;
+  padding: 16px 28px;
   box-sizing: border-box;
   border: 1px solid rgb(32, 32, 39);
   border-radius: 60px;
@@ -113,11 +114,128 @@
   font-size: 24px;
   font-weight: 600;
   line-height: 29px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .top__btn:hover {
   background-color: white;
   color: black;
+}
+
+/* Блок 2. Карточки */
+.games {
+  width: 1440px;
+  min-height: 1242px;
+  background: rgb(32, 32, 39);
+  padding: 94px 120px;
+}
+
+.games__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 378px);
+  grid-auto-rows: min-content;
+  gap: 32px;
+  align-items: start;
+}
+
+.game-card {
+  background: rgb(247, 247, 247);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 378px;
+  height: auto;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  position: relative;
+  z-index: 1;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.game-card:nth-child(1),
+.game-card:nth-child(3) {
+  width: 378px;
+  height: 473px;
+}
+
+.game-card:nth-child(2) {
+  width: 378px;
+  height: 512px;
+}
+
+.game-card:nth-child(4),
+.game-card:nth-child(6) {
+  width: 378px;
+  height: 551px;
+  margin-top: -32px;
+}
+
+.game-card:nth-child(5) {
+  width: 406.23px;
+  height: 550.07px;
+  grid-column: span 1;
+  justify-self: center;
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.games-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 32px 32px 36px 32px;
+  border-radius: 30px;
+  flex: 1;
+  height: auto;
+}
+
+.title1 {
+  width: 112px;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 16px 10px 16px;
+  border-radius: 52.58px;
+  background: rgb(247, 247, 247);
+  color: rgb(32, 32, 39);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.title2 {
+  width: 314px;
+  height: 39px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(32, 32, 39);
+  font-family: Montserrat;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: left;
 }/*# sourceMappingURL=style.css.map */
