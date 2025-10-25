@@ -5,71 +5,70 @@
   box-sizing: border-box;
 }
 
+.center {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+  background-position: center;
+  background-size: cover;
+}
+
 .top {
   position: relative;
   height: 800px;
   background: rgb(225, 255, 143);
   overflow: hidden;
-}
-
-.star3 {
-  position: absolute;
-  top: 69px;
-  left: 156px;
-  z-index: 100;
-  width: 35px;
-  height: 35px;
+  align-items: center;
 }
 
 .star2 {
   position: absolute;
   top: 94px;
-  left: 63px;
+  left: calc(50% - 663px);
   z-index: 100;
   width: 57px;
   height: 57px;
 }
 
+.star3 {
+  position: absolute;
+  top: 69px;
+  left: calc(50% - 558px);
+  z-index: 100;
+  width: 35px;
+  height: 35px;
+}
+
 .star4 {
   position: absolute;
-  bottom: 149px;
-  right: 364px;
+  bottom: 20%;
+  right: 26%;
   z-index: 100;
-  width: 83px;
-  height: 83px;
+  width: 5%;
+  max-width: 83px;
+  height: auto;
 }
 
 .star5 {
   position: absolute;
-  bottom: 225px;
-  right: 455px;
+  bottom: 30%;
+  right: 32%;
   z-index: 100;
-  width: 37px;
-  height: 37px;
+  width: 2.5%;
+  max-width: 37px;
+  height: auto;
 }
 
 .group-star {
-  /*position: absolute;
-  top: -333.46px;
-  left: 854px;
-  z-index: 100;
-  width: 1074px;
-  height: 1130.46px;*/
   position: absolute;
-  top: -25vw;
-  left: 60vw;
+  top: -34%;
+  left: 60%;
   z-index: 100;
-  width: 70vw;
-  height: auto;
+  width: 60%;
   max-width: 1074px;
+  height: auto;
 }
 
 .title {
-  width: 769px;
-  height: 156px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   color: rgb(32, 32, 39);
   font-family: Montserrat;
   font-size: 64px;
@@ -82,15 +81,9 @@
 
 .top__hi {
   padding-top: 196px;
-  margin-left: 120px;
 }
 
 .text {
-  width: 720px;
-  height: 64px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   color: rgb(32, 32, 39);
   font-family: Montserrat;
   font-size: 24px;
@@ -249,4 +242,20 @@
   line-height: 100%;
   letter-spacing: 0px;
   text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .top {
+    height: 600px;
+  }
+  .title {
+    font-size: 48px;
+  }
+  .text {
+    font-size: 20px;
+  }
+  .top__hi {
+    padding-top: 150px;
+    margin-left: 60px;
+  }
 }/*# sourceMappingURL=style.css.map */
