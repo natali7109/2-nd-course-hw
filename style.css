@@ -118,7 +118,105 @@
   color: black;
 }
 
+.top-scroll {
+  width: 3220px;
+  height: 90px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  background: rgb(188, 236, 48);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.games-scroll {
+  display: flex;
+  flex-direction: row;
+  gap: 51px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(32, 32, 39);
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 37px;
+  letter-spacing: 4%;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.game-item {
+  padding-top: 27px;
+}
+
+.game-separator {
+  margin-top: 27px;
+}
+
 /* Блок 2. Карточки */
+.games {
+  position: relative;
+  min-height: 1242px;
+  background: rgb(32, 32, 39);
+  padding: 94px 120px;
+  overflow: hidden;
+}
+
+.star11, .star12, .star1 {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.star1 {
+  top: -171 px;
+  right: -142px;
+}
+
+.star11 {
+  top: 770px;
+  left: 25px;
+}
+
+.star12 {
+  top: 822px;
+  left: 40px;
+}
+
+.games__text-block,
+.games__grid {
+  position: relative;
+  z-index: 2;
+}
+
+.games__title {
+  color: rgb(255, 255, 255);
+  font-family: Montserrat;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.games__text {
+  color: rgb(255, 255, 255);
+  font-family: Montserrat;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding-top: 24px;
+  padding-bottom: 72px;
+}
+
 .games {
   min-height: 1242px;
   background: rgb(32, 32, 39);
@@ -360,7 +458,7 @@
   .title {
     font-size: 40px;
     font-weight: 700;
-    line-height: 100%;
+    line-height: 49px;
     letter-spacing: 0px;
     text-align: center;
   }
@@ -370,6 +468,7 @@
     font-size: 16px;
     line-height: 100%;
     text-align: center;
+    margin-bottom: 36px;
   }
   .top__btn {
     width: 285px;
@@ -379,5 +478,9 @@
     line-height: 20px;
     letter-spacing: 0%;
     text-align: center;
+  }
+  .top__btn:hover {
+    transform: none;
+    box-shadow: none;
   }
 }/*# sourceMappingURL=style.css.map */
