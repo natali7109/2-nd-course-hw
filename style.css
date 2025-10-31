@@ -67,7 +67,7 @@
   font-family: Montserrat;
   font-size: 64px;
   font-weight: 700;
-  line-height: 100%;
+  line-height: 78px;
   letter-spacing: 0px;
   text-align: left;
   margin-bottom: 24px;
@@ -377,6 +377,23 @@
     top: -450px;
     right: -550px;
   }
+  .top-scroll {
+    width: 1717.4px;
+    height: 51.34px;
+  }
+  .games-scroll {
+    gap: 27px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .game-item {
+    padding-top: 16px;
+  }
+  .game-separator {
+    margin-top: 16px;
+    width: 19.34px;
+    height: 19.34px;
+  }
 }
 @media (max-width: 1234px) and (min-width: 769px) {
   .games {
@@ -482,5 +499,22 @@
   .top__btn:hover {
     transform: none;
     box-shadow: none;
+  }
+  .top-scroll {
+    width: 1717.4px;
+    height: 51.34px;
+  }
+  .games-scroll {
+    gap: 27px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .game-item {
+    padding-top: 16px;
+  }
+  .game-separator {
+    margin-top: 16px;
+    width: 19.34px;
+    height: 19.34px;
   }
 }/*# sourceMappingURL=style.css.map */

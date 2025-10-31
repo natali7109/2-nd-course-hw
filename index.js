@@ -1,4 +1,4 @@
-let a = 10 ;
+/*let a = 10 ;
 alert(a);
 a = 20;
 alert(a);
@@ -47,5 +47,5 @@ const user = {
 alert(user.name + ", " + user.age + " лет, администратор: " + user.isAdmin);
 
 let userName = prompt("Как Вас зовут?");
-alert(`Привет, ${userName}!`);
+alert(`Привет, ${userName}!`);*/
 
