@@ -99,7 +99,7 @@ if (clientOS === 0) {
     console.log ("Установите версию приложения для iOS по ссылке");
 } else {
     console.log ("Установите версию приложения для Android по ссылке");
-}*/
+}
 
 
 let clientOS = 0; 
@@ -107,5 +107,5 @@ let clientDeviceYear = 2015;
 let appType = clientDeviceYear >= 2015 ? "" : "облегченную версию ";
 let osName = clientOS === 0 ? "iOS" : "Android";
 let message = `Установите ${appType}приложения для ${osName} по ссылке`;
-console.log(message);
+console.log(message);*/
 
