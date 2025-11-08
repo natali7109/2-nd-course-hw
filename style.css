@@ -149,14 +149,13 @@
   letter-spacing: 4%;
   text-align: left;
   text-transform: uppercase;
-}
-
-.game-item {
+  padding-left: 19px;
   padding-top: 27px;
 }
 
-.game-separator {
-  margin-top: 27px;
+.starScroll {
+  width: 36px;
+  height: 36px;
 }
 
 /* Блок 2. Карточки */
@@ -347,7 +346,9 @@
 }
 
 .star6,
-.star7, .star8, .star10 {
+.star7,
+.star8,
+.star10 {
   position: absolute;
   z-index: 1;
   pointer-events: none;
@@ -387,6 +388,7 @@
   grid-template-columns: 1fr;
   gap: 32px;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 .mini-game-card {

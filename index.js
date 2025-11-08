@@ -108,4 +108,3 @@ let appType = clientDeviceYear >= 2015 ? "" : "облегченную верси
 let osName = clientOS === 0 ? "iOS" : "Android";
 let message = `Установите ${appType}приложения для ${osName} по ссылке`;
 console.log(message);*/
-
