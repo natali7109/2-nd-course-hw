@@ -1,12 +1,13 @@
 /*
 let password = "пароль" ;
 let inputPassword = prompt ("Введите пароль");
-inputPassword = inputPassword.toLocaleLowerCase();
+
 if (inputPassword === password) {
     alert ("Пароль введен верно");
 } else {
     alert("Пароль введен неправильно");
 }
+
 
 let c = 3;
 if (c > 0 && c < 10){
@@ -14,6 +15,7 @@ if (c > 0 && c < 10){
 } else {
     alert ("Неверно");
 }
+ 
 
 let c = 0;
 if (c > 0 && c < 10){
@@ -22,12 +24,14 @@ if (c > 0 && c < 10){
     alert ("Неверно");
 }
 
+
 let c = 10;
 if (c > 0 && c < 10){
     alert ("Верно");
 } else {
     alert ("Неверно");
 }
+
 
 let c = -3;
 if (c > 0 && c < 10){
@@ -36,12 +40,14 @@ if (c > 0 && c < 10){
     alert ("Неверно");
 }
 
+
 let c = 2;
 if (c > 0 && c < 10){
     alert ("Верно");
 } else {
     alert ("Неверно");
 }
+
 
 let d = 50;
 let e = 150;
@@ -50,6 +56,7 @@ if (d > 100 || e > 100) {
 } else {
     console.log ("Неверно");
 }
+
 
 let a = "2";
 let b = "3";
@@ -75,6 +82,7 @@ switch (month) {
         alert("Неверный номер месяца");
 }
 
+
 let input = prompt("Пожалуйста, введите любое число");
 let number = Number(input);
 if (isNaN(number)) {
@@ -84,27 +92,13 @@ if (isNaN(number)) {
         alert("Вы ввели: " + number + " (четное число)");
     } else {
         alert("Вы ввели: " + number + " (нечетное число)");
+
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, -3];
+let minNumber = numbers[0];
+for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] < minNumber) {
+        minNumber = numbers[i];
     }
 }
-
-let clientOS;
-if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-    clientOS = 0; 
-} else if (/Android/.test(navigator.userAgent)) {
-    clientOS = 1; 
-} else {
-    clientOS = 1; 
-}
-if (clientOS === 0) {
-    console.log ("Установите версию приложения для iOS по ссылке");
-} else {
-    console.log ("Установите версию приложения для Android по ссылке");
-}
-
-
-let clientOS = 0; 
-let clientDeviceYear = 2015; 
-let appType = clientDeviceYear >= 2015 ? "" : "облегченную версию ";
-let osName = clientOS === 0 ? "iOS" : "Android";
-let message = `Установите ${appType}приложения для ${osName} по ссылке`;
-console.log(message);*/
+console.log(minNumber);*/

@@ -485,7 +485,7 @@
     padding-right: calc(50% - 384px);
   }
   .top {
-    height: 600px;
+    height: 800px;
   }
   .title {
     font-size: 48px;
@@ -519,18 +519,6 @@
   .group-star {
     top: -450px;
     right: -550px;
-  }
-  .top-scroll {
-    width: 1717.4px;
-    height: 51.34px;
-  }
-  .games-scroll {
-    gap: 27px;
-    font-size: 16px;
-    line-height: 20px;
-  }
-  .game-item {
-    padding-top: 16px;
   }
   .game-separator {
     margin-top: 16px;
@@ -571,7 +559,7 @@
   }
 }
 @media (max-width: 768px) {
-  .games {
+  .games-mobil {
     display: none;
   }
   .top__hi {
@@ -626,7 +614,7 @@
     width: 296px;
     height: 60px;
     font-size: 16px;
-    line-height: 100%;
+    line-height: 20px;
     text-align: center;
     margin-bottom: 36px;
   }
@@ -640,24 +628,93 @@
     text-align: center;
   }
   .top__btn:hover {
-    transform: none;
-    box-shadow: none;
-  }
-  .top-scroll {
-    width: 1717.4px;
-    height: 51.34px;
+    transform: none !important;
+    box-shadow: none !important;
+    background: rgb(32, 32, 39) !important;
+    color: rgb(255, 255, 255) !important;
   }
   .games-scroll {
     gap: 27px;
     font-size: 16px;
     line-height: 20px;
-  }
-  .game-item {
     padding-top: 16px;
+  }
+  .top-scroll {
+    height: 51.34px !important;
+  }
+  img.starScroll {
+    width: 19.34px;
+    height: 19.34px;
   }
   .game-separator {
     margin-top: 16px;
     width: 19.34px;
     height: 19.34px;
+  }
+  /*стили для 3 блока*/
+  .mini-games {
+    width: 375px;
+    padding: 48px 16px 9px 16px;
+  }
+  .games__title {
+    font-size: 40px;
+    line-height: 49px;
+  }
+  .games__focus {
+    margin-bottom: 48px;
+  }
+  .mini-games__grid {
+    padding-top: 24px;
+  }
+  .star6,
+  .star7,
+  .star8,
+  .star10 {
+    display: none;
+  }
+  .mini-game-card {
+    width: 343px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-items: stretch;
+  }
+  .mini-game-cover {
+    grid-row: 1;
+  }
+  .cover-img {
+    height: 284.93px;
+    width: 100%;
+  }
+  .mini-game-info {
+    grid-row: 2;
+    padding: 29px;
+  }
+  .mini-game-right {
+    grid-column: 1 !important;
+    order: 2 !important;
+  }
+  .mini-game-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 39px;
+  }
+  .mini-game-description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+  .mini-game-btn {
+    width: 285px;
+    height: 55px;
+    font-size: 16px;
+    text-align: center;
+  }
+  .footer {
+    height: 100px;
+  }
+  .footer__text {
+    padding-top: 40px;
   }
 }/*# sourceMappingURL=style.css.map */
