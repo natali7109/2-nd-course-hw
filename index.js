@@ -92,6 +92,8 @@ if (isNaN(number)) {
         alert("Вы ввели: " + number + " (четное число)");
     } else {
         alert("Вы ввели: " + number + " (нечетное число)");
+    }
+}
 
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, -3];
