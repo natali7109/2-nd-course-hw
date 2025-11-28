@@ -100,3 +100,66 @@ console.log(circle1.getPerimeter());
 
 console.log(circle2.getArea());      
 console.log(circle2.getPerimeter());*/
+
+
+/*
+const guessNumber = Math.floor(Math.random() * 100) + 1;
+let attempts = 0;
+let isGuessed = false;
+
+alert("Добро пожаловать в игру 'Угадай число'! Я загадал число от 1 до 100. Попробуй угадать!");
+
+while (!isGuessed) {
+    let userGuess = parseInt(prompt("Введите ваше предположение:"));
+    attempts++;
+    
+    if (isNaN(userGuess)) {
+        alert("Пожалуйста, введите число!");
+        continue;
+    }
+    
+    if (userGuess === guessNumber) {
+        isGuessed = true;
+        alert(`Поздравляю! Вы угадали число ${guessNumber} за ${attempts} попыток!`);
+    } 
+    else if (userGuess < guessNumber) {
+        alert("Загаданное число БОЛЬШЕ вашего предположения");
+    } 
+    else {
+        alert("Загаданное число МЕНЬШЕ вашего предположения");
+    }
+}*/
+
+function guessNumberGame() {
+    const secretNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+    
+    while (true) {
+        let userInput = prompt("Введите число от 1 до 100:");
+        
+        if (userInput === null) {
+            alert("Игра прервана пользователем");
+            return;
+        }
+        
+        let userGuess = parseInt(userInput);
+        attempts++;
+        
+        if (isNaN(userGuess)) {
+            alert("Пожалуйста, введите число!");
+            continue;
+        }
+        
+        if (userGuess === secretNumber) {
+            alert(`🎉 Поздравляю! Вы угадали число ${secretNumber} за ${attempts} попыток!`);
+            return;
+        } 
+        else if (userGuess < secretNumber) {
+            alert("🔼 Больше!");
+        } 
+        else {
+            alert("🔽 Меньше!");
+        }
+    }
+}
+
