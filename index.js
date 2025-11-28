@@ -1,106 +1,102 @@
 /*
-let password = "пароль" ;
-let inputPassword = prompt ("Введите пароль");
+function findLeast(a, b) {
+    return a < b ? a : b;
+}
 
-if (inputPassword === password) {
-    alert ("Пароль введен верно");
-} else {
-    alert("Пароль введен неправильно");
+console.log("findLeast(8, 4) =", findLeast(8, 4));    
+console.log("findLeast(6, 6) =", findLeast(6, 6));
+
+
+const checkРarity = (number) => 
+    number % 2 === 0 ? 'Число четное' : 'Число нечетное';
+
+console.log(checkРarity(2));   
+console.log(checkРarity(3)); 
+
+
+function squareNumber(number) {
+    console.log(number * number);
+}
+
+console.log("Квадрат числа:");
+squareNumber(25); 
+squareNumber(52); 
+
+
+
+const returnSquareNumber = number => number * number;
+
+
+
+let age = prompt("Сколько Вам лет?");
+alert(age);
+
+let c = parseInt(age);
+if (c > 0 && c < 12) {
+    alert("Привет, друг!");
+} else if (c >= 13) {
+    alert("Добро пожаловать!");
+} else if (c < 0) {
+    alert("Вы ввели неправильное значение");
 }
 
 
-let c = 3;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
-}
- 
-
-let c = 0;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
-}
-
-
-let c = 10;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
-}
-
-
-let c = -3;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
-}
-
-
-let c = 2;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
-}
-
-
-let d = 50;
-let e = 150;
-if (d > 100 || e > 100) {
-    console.log ("Верно");
-} else {
-    console.log ("Неверно");
-}
-
-
-let a = "2";
-let b = "3";
-alert (Number(a) + Number(b));
-
-
-let monthNumber = prompt("Введите номер месяца");
-let month = Number(monthNumber);
-switch (month) {
-    case 12: case 1: case 2:
-        alert("Зима");
-        break;
-    case 3: case 4: case 5:
-        alert("Весна");
-        break;
-    case 6: case 7: case 8:
-        alert("Лето");
-        break;
-    case 9: case 10: case 11:
-        alert("Осень");
-        break;
-    default:
-        alert("Неверный номер месяца");
-}
-
-
-let input = prompt("Пожалуйста, введите любое число");
-let number = Number(input);
-if (isNaN(number)) {
-    alert("Это не число!");
-} else {
-    if (number % 2 === 0) {
-        alert("Вы ввели: " + number + " (четное число)");
-    } else {
-        alert("Вы ввели: " + number + " (нечетное число)");
+function controlNumber(a, b) {
+    const num1 = Number(a);
+    const num2 = Number(b);
+    
+    if (isNaN(num1) || isNaN(num2)) {
+        return 'Одно или оба значения не являются числом';
     }
+    return num1 * num2;
 }
 
+console.log(controlNumber(2.5, 4));      
+console.log(controlNumber("3", "4"));  
+console.log(controlNumber("ямал", 3));    
+console.log(controlNumber("5", "xyz"));
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, -3];
-let minNumber = numbers[0];
-for (let i = 1; i < numbers.length; i++) {
-    if (numbers[i] < minNumber) {
-        minNumber = numbers[i];
+
+
+let age = prompt("Введите число");
+
+function cubeNumber(n) {
+    let num = parseFloat(n); 
+    
+    if (isNaN(num)) {
+        return 'Переданный параметр не является числом';
     }
+    
+    const cube = num * num * num;
+    return `${num} в кубе равняется ${cube}`;
 }
-console.log(minNumber);*/
+
+let result = cubeNumber(age);
+alert(result);
+
+
+const circle1 = {
+    radius: 3,
+    getArea: function() {
+        return 3.14 * this.radius * this.radius;
+    },
+    getPerimeter: function() {
+        return 2 * 3.14 * this.radius;
+    }
+};
+
+const circle2 = {
+    radius: 5,
+    getArea: function() {
+        return 3.14 * this.radius * this.radius;
+    },
+    getPerimeter: function() {
+        return 2 * 3.14 * this.radius;
+    }
+};
+
+console.log(circle1.getArea());      
+console.log(circle1.getPerimeter()); 
+
+console.log(circle2.getArea());      
+console.log(circle2.getPerimeter());*/
