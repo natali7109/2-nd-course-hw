@@ -1,106 +1,165 @@
 /*
-let password = "пароль" ;
-let inputPassword = prompt ("Введите пароль");
+function findLeast(a, b) {
+    return a < b ? a : b;
+}
 
-if (inputPassword === password) {
-    alert ("Пароль введен верно");
-} else {
-    alert("Пароль введен неправильно");
+console.log("findLeast(8, 4) =", findLeast(8, 4));    
+console.log("findLeast(6, 6) =", findLeast(6, 6));
+
+
+const checkРarity = (number) => 
+    number % 2 === 0 ? 'Число четное' : 'Число нечетное';
+
+console.log(checkРarity(2));   
+console.log(checkРarity(3)); 
+
+
+function squareNumber(number) {
+    console.log(number * number);
+}
+
+console.log("Квадрат числа:");
+squareNumber(25); 
+squareNumber(52); 
+
+
+
+const returnSquareNumber = number => number * number;
+
+
+
+let age = prompt("Сколько Вам лет?");
+alert(age);
+
+let c = parseInt(age);
+if (c > 0 && c < 12) {
+    alert("Привет, друг!");
+} else if (c >= 13) {
+    alert("Добро пожаловать!");
+} else if (c < 0) {
+    alert("Вы ввели неправильное значение");
 }
 
 
-let c = 3;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
-}
- 
-
-let c = 0;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
+function controlNumber(a, b) {
+    const num1 = Number(a);
+    const num2 = Number(b);
+    
+    if (isNaN(num1) || isNaN(num2)) {
+        return 'Одно или оба значения не являются числом';
+    }
+    return num1 * num2;
 }
 
+console.log(controlNumber(2.5, 4));      
+console.log(controlNumber("3", "4"));  
+console.log(controlNumber("ямал", 3));    
+console.log(controlNumber("5", "xyz"));
 
-let c = 10;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
+
+
+let age = prompt("Введите число");
+
+function cubeNumber(n) {
+    let num = parseFloat(n); 
+    
+    if (isNaN(num)) {
+        return 'Переданный параметр не является числом';
+    }
+    
+    const cube = num * num * num;
+    return `${num} в кубе равняется ${cube}`;
 }
 
-
-let c = -3;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
-}
+let result = cubeNumber(age);
+alert(result);
 
 
-let c = 2;
-if (c > 0 && c < 10){
-    alert ("Верно");
-} else {
-    alert ("Неверно");
-}
+const circle1 = {
+    radius: 3,
+    getArea: function() {
+        return 3.14 * this.radius * this.radius;
+    },
+    getPerimeter: function() {
+        return 2 * 3.14 * this.radius;
+    }
+};
+
+const circle2 = {
+    radius: 5,
+    getArea: function() {
+        return 3.14 * this.radius * this.radius;
+    },
+    getPerimeter: function() {
+        return 2 * 3.14 * this.radius;
+    }
+};
+
+console.log(circle1.getArea());      
+console.log(circle1.getPerimeter()); 
+
+console.log(circle2.getArea());      
+console.log(circle2.getPerimeter());*/
 
 
-let d = 50;
-let e = 150;
-if (d > 100 || e > 100) {
-    console.log ("Верно");
-} else {
-    console.log ("Неверно");
-}
+/*
+const guessNumber = Math.floor(Math.random() * 100) + 1;
+let attempts = 0;
+let isGuessed = false;
 
+alert("Добро пожаловать в игру 'Угадай число'! Я загадал число от 1 до 100. Попробуй угадать!");
 
-let a = "2";
-let b = "3";
-alert (Number(a) + Number(b));
+while (!isGuessed) {
+    let userGuess = parseInt(prompt("Введите ваше предположение:"));
+    attempts++;
+    
+    if (isNaN(userGuess)) {
+        alert("Пожалуйста, введите число!");
+        continue;
+    }
+    
+    if (userGuess === guessNumber) {
+        isGuessed = true;
+        alert(`Поздравляю! Вы угадали число ${guessNumber} за ${attempts} попыток!`);
+    } 
+    else if (userGuess < guessNumber) {
+        alert("Загаданное число БОЛЬШЕ вашего предположения");
+    } 
+    else {
+        alert("Загаданное число МЕНЬШЕ вашего предположения");
+    }
+}*/
 
-
-let monthNumber = prompt("Введите номер месяца");
-let month = Number(monthNumber);
-switch (month) {
-    case 12: case 1: case 2:
-        alert("Зима");
-        break;
-    case 3: case 4: case 5:
-        alert("Весна");
-        break;
-    case 6: case 7: case 8:
-        alert("Лето");
-        break;
-    case 9: case 10: case 11:
-        alert("Осень");
-        break;
-    default:
-        alert("Неверный номер месяца");
-}
-
-
-let input = prompt("Пожалуйста, введите любое число");
-let number = Number(input);
-if (isNaN(number)) {
-    alert("Это не число!");
-} else {
-    if (number % 2 === 0) {
-        alert("Вы ввели: " + number + " (четное число)");
-    } else {
-        alert("Вы ввели: " + number + " (нечетное число)");
+function guessNumberGame() {
+    const secretNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+    
+    while (true) {
+        let userInput = prompt("Введите число от 1 до 100:");
+        
+        if (userInput === null) {
+            alert("Игра прервана пользователем");
+            return;
+        }
+        
+        let userGuess = parseInt(userInput);
+        attempts++;
+        
+        if (isNaN(userGuess)) {
+            alert("Пожалуйста, введите число!");
+            continue;
+        }
+        
+        if (userGuess === secretNumber) {
+            alert(`🎉 Поздравляю! Вы угадали число ${secretNumber} за ${attempts} попыток!`);
+            return;
+        } 
+        else if (userGuess < secretNumber) {
+            alert("🔼 Больше!");
+        } 
+        else {
+            alert("🔽 Меньше!");
+        }
     }
 }
 
-
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, -3];
-let minNumber = numbers[0];
-for (let i = 1; i < numbers.length; i++) {
-    if (numbers[i] < minNumber) {
-        minNumber = numbers[i];
-    }
-}
-console.log(minNumber);*/

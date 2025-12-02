@@ -687,8 +687,8 @@
   }
   /*стили для 3 блока*/
   .mini-games {
-    padding: 48px 16px !important; /* ← переопределяем паддинг */
-    min-height: auto; /* ← убираем большую высоту */
+    padding: 48px 16px !important;
+    min-height: auto;
   }
   .mini-games__grid {
     display: flex;
