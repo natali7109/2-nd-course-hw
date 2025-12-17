@@ -1,154 +1,144 @@
-//задание 1
-/*const arr = [1, 5, 4, 10, 0, 3];
+/*
+// Задание 1
+let str = 'js';
+let result1 = str.toUpperCase();
+console.log(result1); 
 
-for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
+//Задание 2
+function filterStringsByPrefix(arr, prefix) {
+    const lowerPrefix = prefix.toLowerCase();
     
-    if (arr[i] === 10) {
-        break; 
-    }
+    return arr.filter(str => {
+        return str.toLowerCase().startsWith(lowerPrefix);
+    });
 }
 
+const fruits = ['apple', 'banana', 'apricot', 'orange', 'Avocado', 'APPLE'];
 
-//задание 2
-const arr = [1, 5, 4, 10, 0, 3];
-const index = arr.indexOf(4);
-console.log(index);
+console.log(filterStringsByPrefix(fruits, 'ap')); 
+
+console.log(filterStringsByPrefix(fruits, 'b')); 
+
+console.log(filterStringsByPrefix(fruits, 'o')); 
+
+console.log(filterStringsByPrefix(fruits, 'x')); 
+
+console.log(filterStringsByPrefix([], 'test')); 
+
+console.log(filterStringsByPrefix(fruits, '')); 
 
 
-//задание 3
-const arr = [1, 3, 5, 10, 20];
-console.log(arr.join(" "));
+//Задание 3
+const number = 32.58884;
+
+const roundedDown = Math.floor(number);
+console.log(`До меньшего целого: ${roundedDown}`); 
+
+const roundedUp = Math.ceil(number);
+console.log(`До большего целого: ${roundedUp}`); 
+
+const rounded = Math.round(number);
+console.log(`До ближайшего целого: ${rounded}`);
 
 
 //задание 4
-const result = [];
+const numbersArray = [52, 53, 49, 77, 21, 32];
+const min = Math.min(...numbersArray);
+const max = Math.max(...numbersArray);
 
-for (let i = 0; i < 3; i++) {
-    result.push([]); 
-    for (let j = 0; j < 3; j++) {
-        result[i].push(1); 
+console.log(`Минимальное: ${min}`);
+console.log(`Максимальное: ${max}`);
+
+
+//Задание 5
+function getRandomNumber() {
+    const randomNum = Math.floor(Math.random() * 10) + 1;
+    console.log(randomNum);
+    return randomNum;
+}
+getRandomNumber();
+
+
+//Задание 6
+function generateRandomArray(n) {
+    if (!Number.isInteger(n) || n <= 0) {
+        console.error('Ошибка: n должно быть положительным целым числом');
+        return [];
     }
-}
-
-console.log(result); 
-
-
-//задание 5
-const arr = [1, 1, 1];
-arr.push(2, 2, 2);
-console.log(arr);
-
-
-//задание 6
-const arr = [9, 8, 7, 'a', 6, 5];
-arr.sort();
-const filteredArr = arr.filter(item => item !== 'a');
-
-console.log(filteredArr); 
-
-
-//задание 7
-const numbers = [9, 8, 7, 6, 5];
-
-const userGuess = prompt("Угадайте число от 1 до 10:");
-
-if (numbers.includes(Number(userGuess))) {
-    alert("Угадал");
-} else {
-    alert("Не угадал");
-}
-
-
-//задание 8
-const text = 'abcdef';
-const splitText = text.split('');
-const reverseText = splitText.reverse();
-const joinText = reverseText.join('');
-
-console.log(joinText);
-
-
-
-//задание 9
-const numbers = [
-    [1, 2, 3],
-    [4, 5, 6]
-];
-const result = [...numbers[0], ...numbers[1]];
-console.log(result);
-
-
-//задание 10
-const numbers = [3, 7, 2, 9, 5, 1, 8, 4, 6, 10];
-
-for (let i = 0; i < numbers.length; i++) {
-    if (i + 1 < numbers.length) {
-        const sum = numbers[i] + numbers[i + 1];
-
-        console.log(`${numbers[i]} + ${numbers[i + 1]} = ${sum}`);
+    
+    const arrayLength = Math.floor(n / 2);
+    
+    const resultArray = [];
+    
+    for (let i = 0; i < arrayLength; i++) {
+        const randomNumber = Math.floor(Math.random() * (n + 1));
+        resultArray.push(randomNumber);
     }
+    
+    return resultArray;
 }
 
+console.log(generateRandomArray(10));
+console.log(generateRandomArray(6));
 
-//задание11
-function getSquares(numbers) {
-    return numbers.map(num => num * num);
+
+
+//Задание 7
+function getRandomInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const numbers = [1, 2, 3, 4, 5];
-const squares = getSquares(numbers);
-console.log(squares); 
-
-
-//задание 12
-function getStringLengths(strings) {
-    return strings.map(str => str.length);
-}
-
-const words = ["apple", "cat", "javascript", "hello"];
-const lengths = getStringLengths(words);
-console.log(lengths); 
-
-
-//задание 13
-function getNegativeNumbers(numbers) {
-    return numbers.filter(num => num < 0);
-}
-
-const numbers = [1, -2, 3, -4, 5, -6, 0];
-const negatives = getNegativeNumbers(numbers);
-console.log(negatives); // [-2, -4, -6]
+console.log(getRandomInRange(1, 5));  
+console.log(getRandomInRange(5, 10));  
+console.log(getRandomInRange(-10, 10));
 
 
 
-// задание 14
-function generateRandomArray(length, max) {
-    const arr = [];
-    for (let i = 0; i < length; i++) {
-        arr.push(Math.round(Math.random() * max));
+//Задание 8
+const currentDate = new Date();
+console.log(currentDate);
+
+
+
+//Задание 9
+const currentDate = new Date();
+console.log('Текущая дата:', currentDate);
+
+const futureDate = new Date(currentDate);
+futureDate.setDate(currentDate.getDate() + 73);
+
+console.log('Дата через 73 дня:', futureDate);
+
+
+
+
+//Задание 10
+function formatRussianDateTime(date) {
+    if (!(date instanceof Date) || isNaN(date.getTime())) {
+        throw new Error('Некорректная дата');
     }
-    return arr;
+    
+    const months = [
+        'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+        'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+    ];
+    
+    const weekdays = [
+        'воскресенье', 'понедельник', 'вторник', 'среда',
+        'четверг', 'пятница', 'суббота'
+    ];
+    
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    const weekday = weekdays[date.getDay()];
+    
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const seconds = date.getSeconds().toString().padStart(2, '0');
+    
+    return `Дата: ${day} ${month} ${year} — это ${weekday}.\nВремя: ${hours}:${minutes}:${seconds}`;
 }
 
-function getEvenNumbers(arr) {
-    return arr.filter(num => num % 2 === 0);
-}
-
-const randomArray = generateRandomArray(10, 10);
-const evenNumbersArray = getEvenNumbers(randomArray);
-console.log("Сгенерированный массив:", randomArray);
-console.log("Четные числа из массива:", evenNumbersArray);*/
-
-
-//задание 15
-const numbers = Array.from({length: 6}, () => Math.floor(Math.random() * 10) + 1);
-
-const sum = numbers.reduce((acc, num) => acc + num, 0);
-const average = sum / numbers.length;
-
-console.log("Массив:", numbers);
-console.log("Среднее арифметическое:", average);
-
-
-
+console.log(formatRussianDateTime(new Date('2023-03-08')));
+*/

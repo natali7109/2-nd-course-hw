@@ -325,3 +325,256 @@ function showMathGameStats() {
           `• Осталось времени: ${mathGameTimeLeft} сек.`);
 }
 
+
+
+
+// Игра 3 "Переверни текст"
+
+function startFlipTextGame() {
+    const userText = prompt("Введите текст для переворачивания:");
+    
+    if (userText === null || userText.trim() === "") {
+        alert("Текст не введен!");
+        return;
+    }
+    
+    // Переворачиваем текст
+    const flippedText = Array.from(userText).reverse().join('');
+    
+    // Показываем результат
+    alert(`🎯 РЕЗУЛЬТАТ:\n\n` +
+          `📝 Оригинал: "${userText}"\n\n` +
+          `🔄 Перевернутый текст:\n"${flippedText}"\n\n`);
+    
+    // Предлагаем сыграть еще раз
+    const playAgain = confirm("Хотите перевернуть другой текст?");
+    if (playAgain) {
+        startFlipTextGame();
+    }
+}
+
+
+// ИГРА 5 - "Простая викторина"
+
+// Массив вопросов и правильных ответов
+const quiz = [
+    {
+        question: "Какой цвет небо?",
+        options: ["1. Красный", "2. Синий", "3. Зеленый"],
+        correctAnswer: 2 // номер правильного ответа
+    },
+    {
+        question: "Сколько дней в неделе?",
+        options: ["1. Шесть", "2. Семь", "3. Восемь"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько у человека пальцев на одной руке?",
+        options: ["1. Четыре", "2. Пять", "3. Шесть"],
+        correctAnswer: 2
+    },
+    {
+        question: "Столица Франции?",
+        options: ["1. Лондон", "2. Берлин", "3. Париж"],
+        correctAnswer: 3
+    },
+    {
+        question: "Самая большая планета Солнечной системы?",
+        options: ["1. Земля", "2. Юпитер", "3. Сатурн"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько сторон у квадрата?",
+        options: ["1. Три", "2. Четыре", "3. Пять"],
+        correctAnswer: 2
+    }
+];
+
+// Переменные состояния игры
+let currentQuestion = 0;
+let score = 0;
+let playerName = "";
+let isGameActive = false;
+
+// Функция запуска викторины
+function startQuiz() {
+    if (isGameActive) {
+        const restart = confirm("Викторина уже запущена. Начать заново?");
+        if (!restart) return;
+    }
+    
+    resetQuiz();
+    isGameActive = true;
+    
+    // Запрашиваем имя игрока
+    getNameAndStart();
+}
+
+// Получение имени игрока
+function getNameAndStart() {
+    const name = prompt("🎮 ДОБРО ПОЖАЛОВАТЬ В ВИКТОРИНУ!\n\nВведите ваше имя:");
+    
+    if (name === null || name.trim() === "") {
+        playerName = "Игрок";
+        showQuizRules();
+    } else {
+        playerName = name.trim();
+        showQuizRules();
+    }
+}
+
+// Показать правила игры
+function showQuizRules() {
+    const rules = `🎯 ПРАВИЛА ВИКТОРИНЫ:\n\n` +
+                 `Привет, ${playerName}!\n\n` +
+                 `• Вам будет предложено ${quiz.length} вопросов\n` +
+                 `• На каждый вопрос есть несколько вариантов ответов\n` +
+                 `• Введите номер правильного ответа (1, 2 или 3)\n` +
+                 `• Постарайтесь ответить на все вопросы правильно!\n\n` +
+                 `Удачи! Нажмите OK, чтобы начать!`;
+    
+    if (confirm(rules)) {
+        askQuestion();
+    }
+}
+
+// Задать вопрос
+function askQuestion() {
+    if (currentQuestion >= quiz.length || !isGameActive) {
+        endQuiz();
+        return;
+    }
+    
+    const questionData = quiz[currentQuestion];
+    const questionNumber = currentQuestion + 1;
+    
+    // Формируем текст вопроса
+    const questionText = `📝 ВОПРОС ${questionNumber} из ${quiz.length}\n\n` +
+                        `${questionData.question}\n\n` +
+                        questionData.options.join('\n') + '\n\n' +
+                        `Введите номер ответа (1, 2 или 3):`;
+    
+    // Запрашиваем ответ
+    const userAnswer = prompt(questionText);
+    
+    // Проверяем ответ
+    checkAnswer(userAnswer, questionData, questionNumber);
+}
+
+// Проверить ответ
+function checkAnswer(userAnswer, questionData, questionNumber) {
+    // Если пользователь отменил
+    if (userAnswer === null) {
+        const quit = confirm("Вы уверены, что хотите выйти из викторины?");
+        if (quit) {
+            endQuiz();
+            return;
+        } else {
+            askQuestion();
+            return;
+        }
+    }
+    
+    const answerNum = parseInt(userAnswer);
+    
+    // Проверяем валидность ответа
+    if (isNaN(answerNum) || answerNum < 1 || answerNum > 3) {
+        alert("❌ Пожалуйста, введите номер ответа: 1, 2 или 3!");
+        setTimeout(() => askQuestion(), 300);
+        return;
+    }
+    
+    // Проверяем правильность
+    if (answerNum === questionData.correctAnswer) {
+        score++;
+        showCorrectFeedback(questionData, questionNumber);
+    } else {
+        showIncorrectFeedback(questionData, questionNumber);
+    }
+    
+    // Переход к следующему вопросу
+    currentQuestion++;
+    setTimeout(() => askQuestion(), 1000);
+}
+
+// Показать правильный ответ
+function showCorrectFeedback(questionData, questionNumber) {
+    const feedback = `✅ ПРАВИЛЬНО! Вопрос ${questionNumber}\n\n` +
+                    `Ваш ответ: ${questionData.correctAnswer}\n` +
+                    `Правильный вариант: ${questionData.options[questionData.correctAnswer - 1]}\n\n` +
+                    `🎉 +1 балл!\n` +
+                    `Текущий счет: ${score} из ${questionNumber}`;
+    
+    alert(feedback);
+}
+
+// Показать неправильный ответ
+function showIncorrectFeedback(questionData, questionNumber) {
+    const correctOption = questionData.options[questionData.correctAnswer - 1];
+    
+    const feedback = `❌ НЕПРАВИЛЬНО! Вопрос ${questionNumber}\n\n` +
+                    `Ваш ответ был неверным.\n` +
+                    `Правильный ответ: ${questionData.correctAnswer} - ${correctOption}\n\n` +
+                    `Текущий счет: ${score} из ${questionNumber}`;
+    
+    alert(feedback);
+}
+
+// Завершить викторину
+function endQuiz() {
+    isGameActive = false;
+    
+    // Расчет результатов
+    const percentage = Math.round((score / quiz.length) * 100);
+    let rating = "";
+    let emoji = "";
+    
+    if (percentage === 100) {
+        rating = "ОТЛИЧНО! Вы настоящий знаток!";
+        emoji = "🏆🎉🌟";
+    } else if (percentage >= 80) {
+        rating = "ХОРОШО! Отличный результат!";
+        emoji = "🎯✨";
+    } else if (percentage >= 60) {
+        rating = "НЕПЛОХО! Можно лучше!";
+        emoji = "👍😊";
+    } else if (percentage >= 40) {
+        rating = "УДОВЛЕТВОРИТЕЛЬНО. Попробуйте еще раз!";
+        emoji = "🤔📚";
+    } else {
+        rating = "НУЖНО ПОВТОРИТЬ МАТЕРИАЛ!";
+        emoji = "📖💪";
+    }
+    
+    // Итоговое сообщение
+    const resultMessage = `🎮 ВИКТОРИНА ЗАВЕРШЕНА!\n\n` +
+                         `👤 Игрок: ${playerName}\n\n` +
+                         `📊 РЕЗУЛЬТАТЫ:\n` +
+                         `• Правильных ответов: ${score} из ${quiz.length}\n` +
+                         `• Процент правильных: ${percentage}%\n` +
+                         `• Оценка: ${rating}\n\n` +
+                         `${emoji}\n\n` +
+                         `Спасибо за игру!`;
+    
+    alert(resultMessage);
+    
+    // Предлагаем сыграть еще раз
+    setTimeout(() => {
+        const playAgain = confirm("Хотите сыграть еще раз?");
+        if (playAgain) {
+            startQuiz();
+        }
+    }, 500);
+}
+
+// Сброс игры
+function resetQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    playerName = "";
+    isGameActive = false;
+}
+
+
+
+    
