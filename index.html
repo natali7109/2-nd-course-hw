@@ -143,10 +143,33 @@
                 <div class="mini-game-info">
                    <h3 class="mini-game-title">Переверни текст</h3>
                    <p class="mini-game-description">Попробуй ввести текст, который будет перевернут.</p>
-                   <button class="mini-game-btn" >Играть!</button>
+                   <button class="mini-game-btn" onclick="startFlipTextGame();">Играть!</button>
                 </div>
                 <div class="mini-game-cover">
                    <img src="./images/miniCover3.svg" alt="Обложка игры 'Переверни текст'" class="cover-img">
+                </div>
+            </div>
+            <div class="flip-game-container" id="flipGameContainer" style="display: none;">
+                <div class="flip-game-content">
+                    <h2 class="flip-game-title">🔄 Переверни текст</h2>
+                    <p class="flip-game-description">Введите любой текст, и я покажу его в перевернутом виде!</p>
+                    
+                    <div class="flip-input-group">
+                        <label for="flipInput">Ваш текст:</label>
+                        <input type="text" id="flipInput" class="flip-input" 
+                               placeholder="Например: Привет, мир!" autofocus>
+                    </div>
+                    
+                    <div class="flip-buttons">
+                        <button id="flipBtn" class="flip-btn">Перевернуть текст</button>
+                        <button onclick="closeFlipGame()" class="close-btn">Закрыть</button>
+                    </div>
+                    
+                    <div class="flip-result" id="flipResultContainer">
+                        <h3>Результат:</h3>
+                        <div id="flipResult" class="result-text"></div>
+                        <div id="originalText" class="original-text"></div>
+                    </div>
                 </div>
             </div>
 
@@ -168,7 +191,7 @@
                 <div class="mini-game-info">
                     <h3 class="mini-game-title">Простая викторина</h3>
                     <p class="mini-game-description">Отвечай на вопросы викторины с вариантами ответов.</p>
-                    <button class="mini-game-btn" >Играть!</button>
+                    <button class="mini-game-btn" onclick="startQuiz();">Играть!</button>
                 </div>
             </div>
 
