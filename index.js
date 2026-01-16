@@ -354,6 +354,100 @@ function startFlipTextGame() {
 }
 
 
+
+
+
+// ИГРА 4 - КАМЕНЬ, НОЖНИЦЫ, БУМАГА 
+
+// Глобальные переменные для счета
+let playerScore = 0;
+let computerScore = 0;
+let drawCount = 0;
+
+// Функция для получения случайного выбора компьютера
+function getComputerChoice() {
+    const choices = ["камень", "ножницы", "бумага"];
+    return choices[Math.floor(Math.random() * choices.length)];
+}
+
+// Функция для определения победителя
+function determineWinner(userChoice, computerChoice) {
+    if (userChoice === computerChoice) {
+        return "ничья";
+    }
+    
+    const winConditions = {
+        "камень": "ножницы",
+        "ножницы": "бумага", 
+        "бумага": "камень"
+    };
+    
+    return winConditions[userChoice] === computerChoice ? "победа" : "поражение";
+}
+
+// Основная функция игры
+function playGame() {
+    // Получаем выбор пользователя
+    const userChoice = prompt("Выберите: камень, ножницы или бумага?").toLowerCase();
+    
+    // Проверка корректности ввода
+    const validChoices = ["камень", "ножницы", "бумага"];
+    if (!validChoices.includes(userChoice)) {
+        alert("Некорректный ввод! Пожалуйста, обновите страницу и попробуйте снова.");
+        return;
+    }
+    
+    // Получаем выбор компьютера
+    const computerChoice = getComputerChoice();
+    
+    // Определяем победителя
+    const result = determineWinner(userChoice, computerChoice);
+    
+    // Обновляем счет
+    if (result === "победа") {
+        playerScore++;
+    } else if (result === "поражение") {
+        computerScore++;
+    } else {
+        drawCount++;
+    }
+    
+    // Выводим результат со счетом
+    const resultMessages = {
+        "ничья": "Ничья!",
+        "победа": "Вы победили!",
+        "поражение": "Вы проиграли!"
+    };
+    
+    const message = `
+    Ваш выбор: ${userChoice}
+    Выбор компьютера: ${computerChoice}
+    
+    Результат: ${resultMessages[result]}
+    
+    === СЧЕТ ===
+    Ваши победы: ${playerScore}
+    Победы компьютера: ${computerScore}
+    Ничьи: ${drawCount}
+    ===========`;
+    
+    alert(message);
+    
+    // Предлагаем сыграть еще раз
+    const playAgain = confirm("Хотите сыграть еще раз?");
+    if (playAgain) {
+        playGame();
+    } else {
+        alert("Спасибо за игру!");
+    }
+}
+
+  
+
+
+
+
+
 // ИГРА 5 - "Простая викторина"
 
 // Массив вопросов и правильных ответов
