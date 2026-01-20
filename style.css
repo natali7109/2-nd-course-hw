@@ -130,8 +130,8 @@
   bottom: 0;
   left: 0;
   z-index: 1;
-  overflow-x: auto;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .games-scroll {
@@ -259,7 +259,6 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 .games__link:nth-child(1),
@@ -387,7 +386,7 @@
 
 /* Стили для мини-игр */
 .games__mob {
-  margin-bottom: 72px;
+  margin-bottom: 48px;
 }
 
 .mini-games__grid {
@@ -403,7 +402,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 500px;
   background: rgb(247, 247, 247);
-  border-radius: 20px;
+  border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -470,6 +469,17 @@
   border: 1px solid rgb(32, 32, 39);
 }
 
+.mini-stone-icon {
+  position: absolute;
+  top: 60%;
+  left: 28%;
+  transform: translate(-50%, -50%) rotate(10deg);
+  width: 128px;
+  height: 141px;
+  z-index: 100;
+  pointer-events: none;
+}
+
 /*подвал*/
 .footer {
   height: 150px;
@@ -495,6 +505,38 @@
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+}
+@media (min-width: 2141px) {
+  .mini-stone-icon {
+    top: 58% !important;
+    left: 38% !important;
+  }
+}
+@media (max-width: 2140px) and (min-width: 1716px) {
+  .mini-stone-icon {
+    top: 58% !important;
+    left: 33% !important;
+  }
+}
+@media (max-width: 1715px) and (min-width: 1512px) {
+  .mini-stone-icon {
+    top: 58% !important;
+    left: 30% !important;
+  }
+}
+@media (min-width: 1235px) and (max-width: 1512px) {
+  .mini-stone-icon {
+    top: 58% !important;
+    left: 30% !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 1234px) {
+  .mini-stone-icon {
+    top: 60% !important;
+    left: 26% !important;
+    width: 82px !important;
+    height: 89px !important;
   }
 }
 @media (max-width: 1087px) and (min-width: 769px) {
@@ -661,7 +703,8 @@
     letter-spacing: 0%;
     text-align: center;
   }
-  .top__btn:hover, .mini-game-btn:hover {
+  .top__btn:hover,
+  .mini-game-btn:hover {
     transform: none !important;
     box-shadow: none !important;
     background: rgb(32, 32, 39) !important;
@@ -714,9 +757,13 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     align-items: stretch;
+    border-radius: 28px !important;
+    overflow: hidden !important;
   }
   .mini-game-cover {
     grid-row: 1;
+    border-radius: 20px 20px 0 0 !important;
+    overflow: hidden !important;
   }
   .cover-img {
     height: 284.93px;
@@ -748,10 +795,26 @@
     font-size: 16px;
     text-align: center;
   }
+  .mini-stone-icon {
+    top: 53.5% !important;
+    left: 51% !important;
+    width: 81px !important;
+    height: 89px !important;
+  }
   .footer {
-    height: 100px;
+    height: 100px !important;
   }
   .footer__text {
-    padding-top: 40px;
+    padding-top: 40px !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+  }
+}
+@media (max-width: 480px) {
+  .mini-stone-icon {
+    top: 53% !important;
+    left: 45% !important;
+    width: 60px !important;
+    height: 69px !important;
   }
 }/*# sourceMappingURL=style.css.map */
