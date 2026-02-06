@@ -670,5 +670,137 @@ function resetQuiz() {
 }
 
 
+//ИГРА 6
 
+let isColorGameActive = false;
+let lastColor = '';
+
+function toggleColorGameSimple() {
+    const section = document.querySelector('.mini-games');
+    const button = document.querySelector('#game6 .mini-game-btn');
     
+    if (!section || !button) return;
+    
+    if (!isColorGameActive) {
+        // ВКЛЮЧАЕМ: меняем цвет
+        lastColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+        
+        section.style.backgroundColor = lastColor;
+        button.style.backgroundColor = lastColor;
+        button.style.color = getContrastColor(lastColor);
+        button.textContent = '⏹️ Стоп';
+        
+        isColorGameActive = true;
+    } else {
+        // ВЫКЛЮЧАЕМ: показываем алерт
+        button.textContent = 'Играть!';
+        
+        const continueGame = confirm(
+            '🎨 Цвет: ' + lastColor + '\n\n' +
+            'Продолжить с другим цветом?\n\n' +
+            'OK - новый цвет\n' +
+            'Отмена - остановить'
+        );
+        
+        if (continueGame) {
+            // Оставляем игру активной, но меняем цвет при следующем клике
+            isColorGameActive = false;
+            setTimeout(() => toggleColorGameSimple(), 100);
+        } else {
+            // Останавливаем игру
+            section.style.backgroundColor = '';
+            button.style.backgroundColor = '';
+            button.style.color = '';
+            isColorGameActive = false;
+        }
+    }
+    
+    function getContrastColor(hexColor) {
+        if (!hexColor.startsWith('#')) return '#000000';
+        const r = parseInt(hexColor.substr(1, 2), 16);
+        const g = parseInt(hexColor.substr(3, 2), 16);
+        const b = parseInt(hexColor.substr(5, 2), 16);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        return brightness > 128 ? '#000000' : '#FFFFFF';
+    }
+}
+
+
+
+
+// ПЛАВНЫЙ СКРОЛ к играм
+
+function initSimpleScroll() {
+    // Находим все карточки в блоке "Об играх"
+    const gameLinks = document.querySelectorAll('.games__link');
+    
+    // Добавляем обработчик на каждую карточку
+    gameLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Отменяем переход по ссылке
+            
+            // Получаем ID игры из href атрибута
+            const gameId = this.getAttribute('href');
+            
+            // Находим целевую игру
+            const targetGame = document.querySelector(gameId);
+            
+            if (targetGame) {
+                // Плавный скролл к игре
+                targetGame.scrollIntoView({
+                    behavior: 'smooth',  // Плавная прокрутка
+                    block: 'start'       // Выравнивание по верху
+                });
+            }
+        });
+    });
+}
+
+// Запускаем при загрузке страницы
+document.addEventListener('DOMContentLoaded', initSimpleScroll);
+
+
+//ЛЕНТА
+
+// Создание бесконечной ленты
+function createInfiniteScroll() {
+    const scrollContainer = document.querySelector('.top-scroll');
+    const gamesScroll = document.querySelector('.games-scroll');
+    
+    if (!scrollContainer || !gamesScroll) return;
+    
+    // Клонируем содержимое
+    const originalContent = gamesScroll.innerHTML;
+    gamesScroll.innerHTML = originalContent + originalContent + originalContent;
+    
+    // Настройки анимации
+    const duration = 60; // секунды на полный цикл
+    
+    // Создаем CSS анимацию
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes infiniteScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100% / 3));
+            }
+        }
+        
+        .games-scroll {
+            animation: infiniteScroll ${duration}s linear infinite;
+            animation-play-state: running;
+            width: calc(300%);
+        }
+        
+        .top-scroll:hover .games-scroll {
+            animation-play-state: paused;
+        }
+    `;
+    
+    document.head.appendChild(style);
+}
+
+// Запускаем после загрузки страницы
+document.addEventListener('DOMContentLoaded', createInfiniteScroll);
